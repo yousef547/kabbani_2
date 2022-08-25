@@ -13,7 +13,7 @@ class categoriesController extends Controller
 {
     public function index()
     {
-        $categories = category::paginate(10);
+        $categories = category::orderBy('id', 'desc')->paginate(10);
         // dd($categories);
         return view('dashboard.categories.index', compact('categories'));
     }
@@ -41,7 +41,7 @@ class categoriesController extends Controller
             "main_category_id"=>1,
         ];
         category::create($arr);
-        return redirect()->route('subCategory')->with("msg", "Successed");
+        return redirect()->route('category')->with("msg", "Successed");
     }
     public function edit($id)
     {

@@ -29,7 +29,7 @@ Route::get('/check-domein/{name}', [homeController::class, 'check_domein']);
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [homeController::class, 'index'])->name('home');
+    Route::get('/home', [homeController::class, 'index'])->name('home');
     /****************** start categories *******************************/
     Route::prefix('category')->group(function () {
         Route::get('/', [categoriesController::class, 'index'])->name('category');
@@ -49,10 +49,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/create', [subCategoriesController::class, 'create'])->name('subCategory.create');
         Route::post('/submit', [subCategoriesController::class, 'submit'])->name('subCategory.submit');
         Route::get('/edit/{id}', [subCategoriesController::class, 'edit'])->name('subCategory.edit');
+        Route::post('/update/{id}', [subCategoriesController::class, 'update'])->name('subCategory.update');
         Route::get('/changeStatus/{id}', [subCategoriesController::class, 'changeStatus'])->name('subCategory.changeStatus');
-
-        // Route::post('/update/{id}', [categoriesController::class, 'update'])->name('category.update');
-        // Route::get('/delete/{id}', [categoriesController::class, 'delete'])->name('category.delete');
+        Route::get('/delete/{id}', [subCategoriesController::class, 'delete'])->name('subCategory.delete');
     });
     /****************** end categories *******************************/
 

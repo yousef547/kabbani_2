@@ -6,6 +6,8 @@ Sub categories
 @section('contant')
 
 <div class="row">
+@include('inc.massage')
+
     <div class="col-6">
         <h3>Sub categories</h3>
     </div>
@@ -84,11 +86,11 @@ Sub categories
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{route('category.edit',[$subCategory->id])}}">
+                                        <a href="{{route('subCategory.edit',[$subCategory->id])}}">
 
                                             <i class="fa fa-edit  text-success fa-2x"></i>
                                         </a>
-                                        <a href="{{route('category.delete',[$subCategory->id])}}"><i
+                                        <a href="{{route('subCategory.delete',[$subCategory->id])}}"><i
                                                 class="fa fa-trash text-danger fa-2x"></i></a>
                                     </td>
 
